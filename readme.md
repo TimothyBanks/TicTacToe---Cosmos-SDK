@@ -52,49 +52,54 @@ curl https://get.ignite.com/username/tictactoe@latest! | sudo bash
 - [Developer Chat](https://discord.gg/ignite)
 
 ## Player 1 First
-tictactoed tx tictactoe game-create dave --from alice
-tictactoed tx tictactoe game-join 0 alice --from alice
-tictactoed q tictactoe game-info 0
+0. ignite chain serve
+1. tictactoed tx tictactoe game-create dave --from alice
+2. tictactoed tx tictactoe game-join 0 alice --from alice
+3. tictactoed q tictactoe game-info 0
 
 ## Player 2 First
-tictactoed tx tictactoe game-create alice --from alice
-tictactoed tx tictactoe game-join 0 dave --from alice
-tictactoed q tictactoe game-info 0
+0. ignite chain serve
+1. tictactoed tx tictactoe game-create alice --from alice
+2. tictactoed tx tictactoe game-join 0 dave --from alice
+3. tictactoed q tictactoe game-info 0
 
 ## Player 1 Wins
-tictactoed tx tictactoe game-create dave --from alice
-tictactoed q tictactoe game-info 0
-tictactoed tx tictactoe game-join 0 alice --from alice
-tictactoed tx tictactoe game-play 0 dave 0 0 --from alice
-tictactoed tx tictactoe game-play 0 alice 1 0 --from alice
-tictactoed tx tictactoe game-play 0 dave 0 1 --from alice
-tictactoed tx tictactoe game-play 0 alice 1 1 --from alice
-tictactoed tx tictactoe game-play 0 dave 0 2 --from alice
-tictactoed q tictactoe game-info 0
+0. ignite chain serve
+1. tictactoed tx tictactoe game-create dave --from alice
+2. tictactoed q tictactoe game-info 0
+3. tictactoed tx tictactoe game-join 0 alice --from alice
+4. tictactoed tx tictactoe game-play 0 dave 0 0 --from alice
+5. tictactoed tx tictactoe game-play 0 alice 1 0 --from alice
+6. tictactoed tx tictactoe game-play 0 dave 0 1 --from alice
+7. tictactoed tx tictactoe game-play 0 alice 1 1 --from alice
+8. tictactoed tx tictactoe game-play 0 dave 0 2 --from alice
+9. tictactoed q tictactoe game-info 0
 
 ## Player 2 Wins
-tictactoed tx tictactoe game-create dave --from alice
-tictactoed q tictactoe game-info 1
-tictactoed tx tictactoe game-join 1 alice --from alice
-tictactoed tx tictactoe game-play 1 dave 0 0 --from alice
-tictactoed tx tictactoe game-play 1 alice 1 0 --from alice
-tictactoed tx tictactoe game-play 1 dave 0 1 --from alice
-tictactoed tx tictactoe game-play 1 alice 1 1 --from alice
-tictactoed tx tictactoe game-play 1 dave 2 2 --from alice
-tictactoed tx tictactoe game-play 1 alice 1 2 --from alice
-tictactoed q tictactoe game-info 1
+0. ignite chain serve
+1. tictactoed tx tictactoe game-create dave --from alice
+2. tictactoed q tictactoe game-info 1
+3. tictactoed tx tictactoe game-join 1 alice --from alice
+4. tictactoed tx tictactoe game-play 1 dave 0 0 --from alice
+5. tictactoed tx tictactoe game-play 1 alice 1 0 --from alice
+6. tictactoed tx tictactoe game-play 1 dave 0 1 --from alice
+7. tictactoed tx tictactoe game-play 1 alice 1 1 --from alice
+8. tictactoed tx tictactoe game-play 1 dave 2 2 --from alice
+9. tictactoed tx tictactoe game-play 1 alice 1 2 --from alice
+10. tictactoed q tictactoe game-info 1
 
 ## Draw
-tictactoed tx tictactoe game-create dave --from alice
-tictactoed q tictactoe game-info 2
-tictactoed tx tictactoe game-join 2 alice --from alice
-tictactoed tx tictactoe game-play 2 dave 0 0 --from alice
-tictactoed tx tictactoe game-play 2 alice 1 0 --from alice
-tictactoed tx tictactoe game-play 2 dave 2 0 --from alice
-tictactoed tx tictactoe game-play 2 alice 0 1 --from alice
-tictactoed tx tictactoe game-play 2 dave 2 1 --from alice
-tictactoed tx tictactoe game-play 2 alice 1 1 --from alice
-tictactoed tx tictactoe game-play 2 dave 0 2 --from alice
-tictactoed tx tictactoe game-play 2 alice 2 2 --from alice
-tictactoed tx tictactoe game-play 2 dave 1 2 --from alice
-tictactoed q tictactoe game-info 2
+0. ignite chain serve
+1. tictactoed tx tictactoe game-create dave --from alice
+2. tictactoed q tictactoe game-info 2
+3. tictactoed tx tictactoe game-join 2 alice --from alice
+4. tictactoed tx tictactoe game-play 2 dave 0 0 --from alice
+5. tictactoed tx tictactoe game-play 2 alice 1 0 --from alice
+6. tictactoed tx tictactoe game-play 2 dave 2 0 --from alice
+7. tictactoed tx tictactoe game-play 2 alice 0 1 --from alice
+8. tictactoed tx tictactoe game-play 2 dave 2 1 --from alice
+9. tictactoed tx tictactoe game-play 2 alice 1 1 --from alice
+10. tictactoed tx tictactoe game-play 2 dave 0 2 --from alice
+11. tictactoed tx tictactoe game-play 2 alice 2 2 --from alice
+12. tictactoed tx tictactoe game-play 2 dave 1 2 --from alice
+13. tictactoed q tictactoe game-info 2
