@@ -12,6 +12,7 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// Allows another player to join a newly created game.
 func (k msgServer) GameJoin(goCtx context.Context, msg *types.MsgGameJoin) (*types.MsgGameJoinResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 	id, err := strconv.ParseUint(msg.GameID, 10, 64)
@@ -30,6 +31,8 @@ func (k msgServer) GameJoin(goCtx context.Context, msg *types.MsgGameJoin) (*typ
 	}
 	game.P2 = msg.P2
 
+	// Who goes first is determined by combining the two players, hashing that result
+	// and checking if the first bit is a 0 (Player 2 goes first) or a 1 (Player 1 goes first).
 	h := fnv.New32a()
 	h.Write([]byte(game.P1 + game.P2))
 	hValue := h.Sum32()

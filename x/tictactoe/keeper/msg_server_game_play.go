@@ -11,6 +11,7 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// Allows a player to make a move on an active game they are a part of.
 func (k msgServer) GamePlay(goCtx context.Context, msg *types.MsgGamePlay) (*types.MsgGamePlayResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 	id, err := strconv.ParseUint(msg.GameID, 10, 64)
@@ -46,12 +47,17 @@ func (k msgServer) GamePlay(goCtx context.Context, msg *types.MsgGamePlay) (*typ
 		gameState = types.GameState_P1Turn
 	}
 
+	// Determine if there is a winner or draw.
 	draw := true
 	for i := 0; i < 9; i++ {
 		if game.Board[i] == types.BoardState_Unset {
+			// Any unset board position means we aren't yet at a draw.
+			// This requires the loop to be fully executed each time.
 			draw = false
 			continue
 		}
+		// If i is the start of a row, column or diagonal then check if that row column or diaganol
+		// is assigned to the same player.
 		if (i%3 == 0 && game.Board[i] == game.Board[i+1] && game.Board[i] == game.Board[i+2]) ||
 			(i < 3 && game.Board[i] == game.Board[i+3] && game.Board[i] == game.Board[i+6]) ||
 			(i == 0 && game.Board[i] == game.Board[4] && game.Board[i] == game.Board[8]) ||

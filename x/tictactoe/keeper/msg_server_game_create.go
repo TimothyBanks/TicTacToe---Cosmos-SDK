@@ -9,6 +9,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
+// Creates a new game and stores it in the kv datastore.
 func (k msgServer) GameCreate(goCtx context.Context, msg *types.MsgGameCreate) (*types.MsgGameCreateResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 	id := k.GetGameCount(ctx)
