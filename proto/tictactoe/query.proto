@@ -1,0 +1,45 @@
+syntax = "proto3";
+package tictactoe.tictactoe;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "tictactoe/params.proto";
+// this line is used by starport scaffolding # 1
+import "tictactoe/game_info.proto";
+
+option go_package = "tictactoe/x/tictactoe/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // Parameters queries the parameters of the module.
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/tictactoe/tictactoe/params";
+  }
+
+// Queries a list of GameInfo items.
+	rpc GameInfo(QueryGameInfoRequest) returns (QueryGameInfoResponse) {
+		option (google.api.http).get = "/tictactoe/tictactoe/game_info/{gameID}";
+	}
+
+// this line is used by starport scaffolding # 2
+}
+
+// QueryParamsRequest is request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  // params holds all the parameters of this module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGameInfoRequest {
+  uint64 gameID = 1;
+}
+
+message QueryGameInfoResponse {
+  GameInfo game = 1;
+}
+
+// this line is used by starport scaffolding # 3

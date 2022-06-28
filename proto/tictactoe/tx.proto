@@ -1,0 +1,55 @@
+syntax = "proto3";
+package tictactoe.tictactoe;
+
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "tictactoe/x/tictactoe/types";
+
+// Msg defines the Msg service.
+service Msg {
+      rpc GameCreate(MsgGameCreate) returns (MsgGameCreateResponse);
+  rpc GaJoin(MsgGaJoin) returns (MsgGaJoinResponse);
+  rpc GameJoin(MsgGameJoin) returns (MsgGameJoinResponse);
+  rpc GamePlay(MsgGamePlay) returns (MsgGamePlayResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgGameCreate {
+  string creator = 1;
+  string p1 = 2;
+}
+
+message MsgGameCreateResponse {
+  string gameID = 1;
+}
+
+message MsgGaJoin {
+  string creator = 1;
+  string gameID = 2;
+  string p2 = 3;
+}
+
+message MsgGaJoinResponse {
+}
+
+message MsgGameJoin {
+  string creator = 1;
+  string gameID = 2;
+  string p2 = 3;
+}
+
+message MsgGameJoinResponse {
+}
+
+message MsgGamePlay {
+  string creator = 1;
+  string gameID = 2;
+  string player = 3;
+  string x = 4;
+  string y = 5;
+}
+
+message MsgGamePlayResponse {
+}
+
+// this line is used by starport scaffolding # proto/tx/message

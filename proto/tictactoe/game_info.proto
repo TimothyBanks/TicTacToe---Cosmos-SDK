@@ -1,0 +1,28 @@
+syntax = "proto3";
+package tictactoe.tictactoe;
+
+option go_package = "tictactoe/x/tictactoe/types";
+
+enum GameState {
+    New = 0;
+    Active = 1;
+    P1Turn = 2;
+    P2Turn = 3;
+    Draw = 4;
+    P1Winner = 5;
+    P2Winner = 6;
+}
+
+enum BoardState {
+    Unset = 0;
+    P1 = 1;
+    P2 = 2;
+}
+
+message GameInfo {
+    uint64 id = 1;
+    string P1 = 2;
+    string P2 = 3;
+    GameState state = 4;
+    repeated BoardState board = 5;
+}
