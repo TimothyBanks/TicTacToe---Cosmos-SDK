@@ -56,7 +56,7 @@ func (k msgServer) GamePlay(goCtx context.Context, msg *types.MsgGamePlay) (*typ
 			draw = false
 			continue
 		}
-		// If i is the start of a row, column or diagonal then check if that row column or diaganol
+		// If i is the start of a row, column or diagonal then check if that row, column or diagonal
 		// is assigned to the same player.
 		if (i%3 == 0 && game.Board[i] == game.Board[i+1] && game.Board[i] == game.Board[i+2]) ||
 			(i < 3 && game.Board[i] == game.Board[i+3] && game.Board[i] == game.Board[i+6]) ||
