@@ -166,6 +166,21 @@ export default {
 		},
 		
 		
+		async sendMsgGameJoin({ rootGetters }, { value, fee = [], memo = '' }) {
+			try {
+				const txClient=await initTxClient(rootGetters)
+				const msg = await txClient.msgGameJoin(value)
+				const result = await txClient.signAndBroadcast([msg], {fee: { amount: fee, 
+	gas: "200000" }, memo})
+				return result
+			} catch (e) {
+				if (e == MissingWalletError) {
+					throw new Error('TxClient:MsgGameJoin:Init Could not initialize signing client. Wallet is required.')
+				}else{
+					throw new Error('TxClient:MsgGameJoin:Send Could not broadcast Tx: '+ e.message)
+				}
+			}
+		},
 		async sendMsgGameCreate({ rootGetters }, { value, fee = [], memo = '' }) {
 			try {
 				const txClient=await initTxClient(rootGetters)
@@ -178,21 +193,6 @@ export default {
 					throw new Error('TxClient:MsgGameCreate:Init Could not initialize signing client. Wallet is required.')
 				}else{
 					throw new Error('TxClient:MsgGameCreate:Send Could not broadcast Tx: '+ e.message)
-				}
-			}
-		},
-		async sendMsgGaJoin({ rootGetters }, { value, fee = [], memo = '' }) {
-			try {
-				const txClient=await initTxClient(rootGetters)
-				const msg = await txClient.msgGaJoin(value)
-				const result = await txClient.signAndBroadcast([msg], {fee: { amount: fee, 
-	gas: "200000" }, memo})
-				return result
-			} catch (e) {
-				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgGaJoin:Init Could not initialize signing client. Wallet is required.')
-				}else{
-					throw new Error('TxClient:MsgGaJoin:Send Could not broadcast Tx: '+ e.message)
 				}
 			}
 		},
@@ -211,22 +211,20 @@ export default {
 				}
 			}
 		},
-		async sendMsgGameJoin({ rootGetters }, { value, fee = [], memo = '' }) {
+		
+		async MsgGameJoin({ rootGetters }, { value }) {
 			try {
 				const txClient=await initTxClient(rootGetters)
 				const msg = await txClient.msgGameJoin(value)
-				const result = await txClient.signAndBroadcast([msg], {fee: { amount: fee, 
-	gas: "200000" }, memo})
-				return result
+				return msg
 			} catch (e) {
 				if (e == MissingWalletError) {
 					throw new Error('TxClient:MsgGameJoin:Init Could not initialize signing client. Wallet is required.')
-				}else{
-					throw new Error('TxClient:MsgGameJoin:Send Could not broadcast Tx: '+ e.message)
+				} else{
+					throw new Error('TxClient:MsgGameJoin:Create Could not create message: ' + e.message)
 				}
 			}
 		},
-		
 		async MsgGameCreate({ rootGetters }, { value }) {
 			try {
 				const txClient=await initTxClient(rootGetters)
@@ -240,19 +238,6 @@ export default {
 				}
 			}
 		},
-		async MsgGaJoin({ rootGetters }, { value }) {
-			try {
-				const txClient=await initTxClient(rootGetters)
-				const msg = await txClient.msgGaJoin(value)
-				return msg
-			} catch (e) {
-				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgGaJoin:Init Could not initialize signing client. Wallet is required.')
-				} else{
-					throw new Error('TxClient:MsgGaJoin:Create Could not create message: ' + e.message)
-				}
-			}
-		},
 		async MsgGamePlay({ rootGetters }, { value }) {
 			try {
 				const txClient=await initTxClient(rootGetters)
@@ -263,19 +248,6 @@ export default {
 					throw new Error('TxClient:MsgGamePlay:Init Could not initialize signing client. Wallet is required.')
 				} else{
 					throw new Error('TxClient:MsgGamePlay:Create Could not create message: ' + e.message)
-				}
-			}
-		},
-		async MsgGameJoin({ rootGetters }, { value }) {
-			try {
-				const txClient=await initTxClient(rootGetters)
-				const msg = await txClient.msgGameJoin(value)
-				return msg
-			} catch (e) {
-				if (e == MissingWalletError) {
-					throw new Error('TxClient:MsgGameJoin:Init Could not initialize signing client. Wallet is required.')
-				} else{
-					throw new Error('TxClient:MsgGameJoin:Create Could not create message: ' + e.message)
 				}
 			}
 		},

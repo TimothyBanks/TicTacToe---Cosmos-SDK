@@ -29,10 +29,11 @@ func (k msgServer) GamePlay(goCtx context.Context, msg *types.MsgGamePlay) (*typ
 	}
 	x, _ := strconv.ParseUint(msg.X, 10, 64)
 	y, _ := strconv.ParseUint(msg.Y, 10, 64)
-	if x >= 3 || y >= 3 {
+	const n = 3
+	if x >= n || y >= n {
 		return &types.MsgGamePlayResponse{}, status.Error(codes.InvalidArgument, "Invalid move.")
 	}
-	index := y*3 + x
+	index := y*n + x
 	if game.Board[index] != types.BoardState_Unset {
 		return &types.MsgGamePlayResponse{}, status.Error(codes.InvalidArgument, "Position already taken.")
 	}

@@ -45,8 +45,6 @@ export enum TictactoeGameState {
   P2Winner = "P2Winner",
 }
 
-export type TictactoeMsgGaJoinResponse = object;
-
 export interface TictactoeMsgGameCreateResponse {
   gameID?: string;
 }

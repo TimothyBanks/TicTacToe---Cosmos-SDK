@@ -3,15 +3,16 @@ package tictactoe
 import (
 	"math/rand"
 
+	"tictactoe/testutil/sample"
+	tictactoesimulation "tictactoe/x/tictactoe/simulation"
+	"tictactoe/x/tictactoe/types"
+
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
-	"tictactoe/testutil/sample"
-	tictactoesimulation "tictactoe/x/tictactoe/simulation"
-	"tictactoe/x/tictactoe/types"
 )
 
 // avoid unused import issue
@@ -83,17 +84,6 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgGameCreate,
 		tictactoesimulation.SimulateMsgGameCreate(am.accountKeeper, am.bankKeeper, am.keeper),
-	))
-
-	var weightMsgGaJoin int
-	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgGaJoin, &weightMsgGaJoin, nil,
-		func(_ *rand.Rand) {
-			weightMsgGaJoin = defaultWeightMsgGaJoin
-		},
-	)
-	operations = append(operations, simulation.NewWeightedOperation(
-		weightMsgGaJoin,
-		tictactoesimulation.SimulateMsgGaJoin(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	var weightMsgGameJoin int

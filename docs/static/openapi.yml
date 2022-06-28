@@ -52033,8 +52033,6 @@ definitions:
       - P1Winner
       - P2Winner
     default: New
-  tictactoe.tictactoe.MsgGaJoinResponse:
-    type: object
   tictactoe.tictactoe.MsgGameCreateResponse:
     type: object
     properties:

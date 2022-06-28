@@ -12,14 +12,6 @@ export interface MsgGameCreateResponse {
   gameID: string;
 }
 
-export interface MsgGaJoin {
-  creator: string;
-  gameID: string;
-  p2: string;
-}
-
-export interface MsgGaJoinResponse {}
-
 export interface MsgGameJoin {
   creator: string;
   gameID: string;
@@ -166,133 +158,6 @@ export const MsgGameCreateResponse = {
     } else {
       message.gameID = "";
     }
-    return message;
-  },
-};
-
-const baseMsgGaJoin: object = { creator: "", gameID: "", p2: "" };
-
-export const MsgGaJoin = {
-  encode(message: MsgGaJoin, writer: Writer = Writer.create()): Writer {
-    if (message.creator !== "") {
-      writer.uint32(10).string(message.creator);
-    }
-    if (message.gameID !== "") {
-      writer.uint32(18).string(message.gameID);
-    }
-    if (message.p2 !== "") {
-      writer.uint32(26).string(message.p2);
-    }
-    return writer;
-  },
-
-  decode(input: Reader | Uint8Array, length?: number): MsgGaJoin {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMsgGaJoin } as MsgGaJoin;
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.creator = reader.string();
-          break;
-        case 2:
-          message.gameID = reader.string();
-          break;
-        case 3:
-          message.p2 = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
-  },
-
-  fromJSON(object: any): MsgGaJoin {
-    const message = { ...baseMsgGaJoin } as MsgGaJoin;
-    if (object.creator !== undefined && object.creator !== null) {
-      message.creator = String(object.creator);
-    } else {
-      message.creator = "";
-    }
-    if (object.gameID !== undefined && object.gameID !== null) {
-      message.gameID = String(object.gameID);
-    } else {
-      message.gameID = "";
-    }
-    if (object.p2 !== undefined && object.p2 !== null) {
-      message.p2 = String(object.p2);
-    } else {
-      message.p2 = "";
-    }
-    return message;
-  },
-
-  toJSON(message: MsgGaJoin): unknown {
-    const obj: any = {};
-    message.creator !== undefined && (obj.creator = message.creator);
-    message.gameID !== undefined && (obj.gameID = message.gameID);
-    message.p2 !== undefined && (obj.p2 = message.p2);
-    return obj;
-  },
-
-  fromPartial(object: DeepPartial<MsgGaJoin>): MsgGaJoin {
-    const message = { ...baseMsgGaJoin } as MsgGaJoin;
-    if (object.creator !== undefined && object.creator !== null) {
-      message.creator = object.creator;
-    } else {
-      message.creator = "";
-    }
-    if (object.gameID !== undefined && object.gameID !== null) {
-      message.gameID = object.gameID;
-    } else {
-      message.gameID = "";
-    }
-    if (object.p2 !== undefined && object.p2 !== null) {
-      message.p2 = object.p2;
-    } else {
-      message.p2 = "";
-    }
-    return message;
-  },
-};
-
-const baseMsgGaJoinResponse: object = {};
-
-export const MsgGaJoinResponse = {
-  encode(_: MsgGaJoinResponse, writer: Writer = Writer.create()): Writer {
-    return writer;
-  },
-
-  decode(input: Reader | Uint8Array, length?: number): MsgGaJoinResponse {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMsgGaJoinResponse } as MsgGaJoinResponse;
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
-  },
-
-  fromJSON(_: any): MsgGaJoinResponse {
-    const message = { ...baseMsgGaJoinResponse } as MsgGaJoinResponse;
-    return message;
-  },
-
-  toJSON(_: MsgGaJoinResponse): unknown {
-    const obj: any = {};
-    return obj;
-  },
-
-  fromPartial(_: DeepPartial<MsgGaJoinResponse>): MsgGaJoinResponse {
-    const message = { ...baseMsgGaJoinResponse } as MsgGaJoinResponse;
     return message;
   },
 };
@@ -594,7 +459,6 @@ export const MsgGamePlayResponse = {
 /** Msg defines the Msg service. */
 export interface Msg {
   GameCreate(request: MsgGameCreate): Promise<MsgGameCreateResponse>;
-  GaJoin(request: MsgGaJoin): Promise<MsgGaJoinResponse>;
   GameJoin(request: MsgGameJoin): Promise<MsgGameJoinResponse>;
   /** this line is used by starport scaffolding # proto/tx/rpc */
   GamePlay(request: MsgGamePlay): Promise<MsgGamePlayResponse>;
@@ -615,12 +479,6 @@ export class MsgClientImpl implements Msg {
     return promise.then((data) =>
       MsgGameCreateResponse.decode(new Reader(data))
     );
-  }
-
-  GaJoin(request: MsgGaJoin): Promise<MsgGaJoinResponse> {
-    const data = MsgGaJoin.encode(request).finish();
-    const promise = this.rpc.request("tictactoe.tictactoe.Msg", "GaJoin", data);
-    return promise.then((data) => MsgGaJoinResponse.decode(new Reader(data)));
   }
 
   GameJoin(request: MsgGameJoin): Promise<MsgGameJoinResponse> {

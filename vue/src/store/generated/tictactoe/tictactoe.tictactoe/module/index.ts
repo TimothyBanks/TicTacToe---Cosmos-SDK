@@ -4,17 +4,15 @@ import { StdFee } from "@cosmjs/launchpad";
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { Api } from "./rest";
-import { MsgGameCreate } from "./types/tictactoe/tx";
-import { MsgGaJoin } from "./types/tictactoe/tx";
-import { MsgGamePlay } from "./types/tictactoe/tx";
 import { MsgGameJoin } from "./types/tictactoe/tx";
+import { MsgGameCreate } from "./types/tictactoe/tx";
+import { MsgGamePlay } from "./types/tictactoe/tx";
 
 
 const types = [
-  ["/tictactoe.tictactoe.MsgGameCreate", MsgGameCreate],
-  ["/tictactoe.tictactoe.MsgGaJoin", MsgGaJoin],
-  ["/tictactoe.tictactoe.MsgGamePlay", MsgGamePlay],
   ["/tictactoe.tictactoe.MsgGameJoin", MsgGameJoin],
+  ["/tictactoe.tictactoe.MsgGameCreate", MsgGameCreate],
+  ["/tictactoe.tictactoe.MsgGamePlay", MsgGamePlay],
   
 ];
 export const MissingWalletError = new Error("wallet is required");
@@ -47,10 +45,9 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
 
   return {
     signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {fee: defaultFee, memo: ""}) => client.signAndBroadcast(address, msgs, fee,memo),
-    msgGameCreate: (data: MsgGameCreate): EncodeObject => ({ typeUrl: "/tictactoe.tictactoe.MsgGameCreate", value: MsgGameCreate.fromPartial( data ) }),
-    msgGaJoin: (data: MsgGaJoin): EncodeObject => ({ typeUrl: "/tictactoe.tictactoe.MsgGaJoin", value: MsgGaJoin.fromPartial( data ) }),
-    msgGamePlay: (data: MsgGamePlay): EncodeObject => ({ typeUrl: "/tictactoe.tictactoe.MsgGamePlay", value: MsgGamePlay.fromPartial( data ) }),
     msgGameJoin: (data: MsgGameJoin): EncodeObject => ({ typeUrl: "/tictactoe.tictactoe.MsgGameJoin", value: MsgGameJoin.fromPartial( data ) }),
+    msgGameCreate: (data: MsgGameCreate): EncodeObject => ({ typeUrl: "/tictactoe.tictactoe.MsgGameCreate", value: MsgGameCreate.fromPartial( data ) }),
+    msgGamePlay: (data: MsgGamePlay): EncodeObject => ({ typeUrl: "/tictactoe.tictactoe.MsgGamePlay", value: MsgGamePlay.fromPartial( data ) }),
     
   };
 };

@@ -123,102 +123,6 @@ func (m *MsgGameCreateResponse) GetGameID() string {
 	return ""
 }
 
-type MsgGaJoin struct {
-	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	GameID  string `protobuf:"bytes,2,opt,name=gameID,proto3" json:"gameID,omitempty"`
-	P2      string `protobuf:"bytes,3,opt,name=p2,proto3" json:"p2,omitempty"`
-}
-
-func (m *MsgGaJoin) Reset()         { *m = MsgGaJoin{} }
-func (m *MsgGaJoin) String() string { return proto.CompactTextString(m) }
-func (*MsgGaJoin) ProtoMessage()    {}
-func (*MsgGaJoin) Descriptor() ([]byte, []int) {
-	return fileDescriptor_82e04dc317c099c4, []int{2}
-}
-func (m *MsgGaJoin) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgGaJoin) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgGaJoin.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgGaJoin) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgGaJoin.Merge(m, src)
-}
-func (m *MsgGaJoin) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgGaJoin) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgGaJoin.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgGaJoin proto.InternalMessageInfo
-
-func (m *MsgGaJoin) GetCreator() string {
-	if m != nil {
-		return m.Creator
-	}
-	return ""
-}
-
-func (m *MsgGaJoin) GetGameID() string {
-	if m != nil {
-		return m.GameID
-	}
-	return ""
-}
-
-func (m *MsgGaJoin) GetP2() string {
-	if m != nil {
-		return m.P2
-	}
-	return ""
-}
-
-type MsgGaJoinResponse struct {
-}
-
-func (m *MsgGaJoinResponse) Reset()         { *m = MsgGaJoinResponse{} }
-func (m *MsgGaJoinResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgGaJoinResponse) ProtoMessage()    {}
-func (*MsgGaJoinResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_82e04dc317c099c4, []int{3}
-}
-func (m *MsgGaJoinResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgGaJoinResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgGaJoinResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgGaJoinResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgGaJoinResponse.Merge(m, src)
-}
-func (m *MsgGaJoinResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgGaJoinResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgGaJoinResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgGaJoinResponse proto.InternalMessageInfo
-
 type MsgGameJoin struct {
 	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
 	GameID  string `protobuf:"bytes,2,opt,name=gameID,proto3" json:"gameID,omitempty"`
@@ -229,7 +133,7 @@ func (m *MsgGameJoin) Reset()         { *m = MsgGameJoin{} }
 func (m *MsgGameJoin) String() string { return proto.CompactTextString(m) }
 func (*MsgGameJoin) ProtoMessage()    {}
 func (*MsgGameJoin) Descriptor() ([]byte, []int) {
-	return fileDescriptor_82e04dc317c099c4, []int{4}
+	return fileDescriptor_82e04dc317c099c4, []int{2}
 }
 func (m *MsgGameJoin) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -286,7 +190,7 @@ func (m *MsgGameJoinResponse) Reset()         { *m = MsgGameJoinResponse{} }
 func (m *MsgGameJoinResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgGameJoinResponse) ProtoMessage()    {}
 func (*MsgGameJoinResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_82e04dc317c099c4, []int{5}
+	return fileDescriptor_82e04dc317c099c4, []int{3}
 }
 func (m *MsgGameJoinResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -327,7 +231,7 @@ func (m *MsgGamePlay) Reset()         { *m = MsgGamePlay{} }
 func (m *MsgGamePlay) String() string { return proto.CompactTextString(m) }
 func (*MsgGamePlay) ProtoMessage()    {}
 func (*MsgGamePlay) Descriptor() ([]byte, []int) {
-	return fileDescriptor_82e04dc317c099c4, []int{6}
+	return fileDescriptor_82e04dc317c099c4, []int{4}
 }
 func (m *MsgGamePlay) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -398,7 +302,7 @@ func (m *MsgGamePlayResponse) Reset()         { *m = MsgGamePlayResponse{} }
 func (m *MsgGamePlayResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgGamePlayResponse) ProtoMessage()    {}
 func (*MsgGamePlayResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_82e04dc317c099c4, []int{7}
+	return fileDescriptor_82e04dc317c099c4, []int{5}
 }
 func (m *MsgGamePlayResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -430,8 +334,6 @@ var xxx_messageInfo_MsgGamePlayResponse proto.InternalMessageInfo
 func init() {
 	proto.RegisterType((*MsgGameCreate)(nil), "tictactoe.tictactoe.MsgGameCreate")
 	proto.RegisterType((*MsgGameCreateResponse)(nil), "tictactoe.tictactoe.MsgGameCreateResponse")
-	proto.RegisterType((*MsgGaJoin)(nil), "tictactoe.tictactoe.MsgGaJoin")
-	proto.RegisterType((*MsgGaJoinResponse)(nil), "tictactoe.tictactoe.MsgGaJoinResponse")
 	proto.RegisterType((*MsgGameJoin)(nil), "tictactoe.tictactoe.MsgGameJoin")
 	proto.RegisterType((*MsgGameJoinResponse)(nil), "tictactoe.tictactoe.MsgGameJoinResponse")
 	proto.RegisterType((*MsgGamePlay)(nil), "tictactoe.tictactoe.MsgGamePlay")
@@ -441,7 +343,7 @@ func init() {
 func init() { proto.RegisterFile("tictactoe/tx.proto", fileDescriptor_82e04dc317c099c4) }
 
 var fileDescriptor_82e04dc317c099c4 = []byte{
-	// 344 bytes of a gzipped FileDescriptorProto
+	// 314 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2a, 0xc9, 0x4c, 0x2e,
 	0x49, 0x4c, 0x2e, 0xc9, 0x4f, 0xd5, 0x2f, 0xa9, 0xd0, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x12,
 	0x86, 0x8b, 0xe9, 0xc1, 0x59, 0x4a, 0x96, 0x5c, 0xbc, 0xbe, 0xc5, 0xe9, 0xee, 0x89, 0xb9, 0xa9,
@@ -449,21 +351,19 @@ var fileDescriptor_82e04dc317c099c4 = []byte{
 	0xa3, 0x02, 0xa3, 0x06, 0x67, 0x10, 0x8c, 0x2b, 0xc4, 0xc7, 0xc5, 0x54, 0x60, 0x28, 0xc1, 0x04,
 	0x16, 0x64, 0x2a, 0x30, 0x54, 0xd2, 0xe7, 0x12, 0x45, 0xd1, 0x1a, 0x94, 0x5a, 0x5c, 0x90, 0x9f,
 	0x57, 0x9c, 0x2a, 0x24, 0xc6, 0xc5, 0x96, 0x9e, 0x98, 0x9b, 0xea, 0xe9, 0x02, 0x35, 0x01, 0xca,
-	0x53, 0xf2, 0xe5, 0xe2, 0x04, 0x6b, 0xf0, 0xca, 0xcf, 0xcc, 0xc3, 0x63, 0x0f, 0x42, 0x3b, 0x13,
-	0xb2, 0x76, 0xb0, 0xfd, 0x46, 0x12, 0xcc, 0x50, 0xfb, 0x8d, 0x94, 0x84, 0xb9, 0x04, 0xe1, 0xc6,
-	0xc1, 0xec, 0x56, 0xf2, 0xe7, 0xe2, 0x86, 0x3a, 0x8a, 0x4a, 0xb6, 0x88, 0x72, 0x09, 0x23, 0x19,
-	0x08, 0xb7, 0xa7, 0x18, 0x6e, 0x4f, 0x40, 0x4e, 0x62, 0x25, 0x19, 0xf6, 0x88, 0x71, 0xb1, 0x15,
-	0xe4, 0x24, 0x56, 0xa6, 0x16, 0x41, 0xed, 0x82, 0xf2, 0x84, 0x78, 0xb8, 0x18, 0x2b, 0x24, 0x58,
-	0xc0, 0x42, 0x8c, 0x15, 0x20, 0x5e, 0xa5, 0x04, 0x2b, 0x84, 0x57, 0x89, 0xe4, 0x16, 0x90, 0xa5,
-	0x30, 0xb7, 0x18, 0x3d, 0x65, 0xe2, 0x62, 0xf6, 0x2d, 0x4e, 0x17, 0x8a, 0xe1, 0xe2, 0x42, 0x8a,
-	0x48, 0x25, 0x3d, 0x2c, 0xf1, 0xad, 0x87, 0x12, 0x63, 0x52, 0x5a, 0x84, 0xd5, 0xc0, 0x63, 0x35,
-	0x80, 0x8b, 0x0d, 0x1a, 0x75, 0x72, 0xb8, 0x75, 0x81, 0xe4, 0xa5, 0xd4, 0xf0, 0xcb, 0xc3, 0x4d,
-	0x0c, 0xe3, 0xe2, 0x80, 0x47, 0x94, 0x02, 0x3e, 0x97, 0x80, 0x4d, 0xd5, 0x20, 0xa4, 0x02, 0xdd,
-	0x5c, 0x70, 0xc4, 0xe0, 0x35, 0x17, 0xa4, 0x02, 0xbf, 0xb9, 0xc8, 0xe1, 0xec, 0x64, 0x7a, 0xe2,
-	0x91, 0x1c, 0xe3, 0x85, 0x47, 0x72, 0x8c, 0x0f, 0x1e, 0xc9, 0x31, 0x4e, 0x78, 0x2c, 0xc7, 0x70,
-	0xe1, 0xb1, 0x1c, 0xc3, 0x8d, 0xc7, 0x72, 0x0c, 0x51, 0xd2, 0x88, 0xec, 0x56, 0xa1, 0x8f, 0x94,
-	0xf5, 0x2a, 0x0b, 0x52, 0x8b, 0x93, 0xd8, 0xc0, 0xd9, 0xcf, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff,
-	0x8c, 0x95, 0x1b, 0xbe, 0x94, 0x03, 0x00, 0x00,
+	0x53, 0xf2, 0xe7, 0xe2, 0x86, 0x6a, 0xf0, 0xca, 0xcf, 0xcc, 0xc3, 0x63, 0x13, 0xc2, 0x00, 0x26,
+	0x64, 0x03, 0xc0, 0x2e, 0x30, 0x92, 0x60, 0x86, 0xba, 0xc0, 0x48, 0x49, 0x94, 0x4b, 0x18, 0xc9,
+	0x40, 0x98, 0xfd, 0x4a, 0xc5, 0x70, 0x7b, 0x02, 0x72, 0x12, 0x2b, 0xc9, 0xb0, 0x47, 0x8c, 0x8b,
+	0xad, 0x20, 0x27, 0xb1, 0x32, 0xb5, 0x08, 0x6a, 0x17, 0x94, 0x27, 0xc4, 0xc3, 0xc5, 0x58, 0x21,
+	0xc1, 0x02, 0x16, 0x62, 0xac, 0x00, 0xf1, 0x2a, 0x25, 0x58, 0x21, 0xbc, 0x4a, 0x24, 0xb7, 0x80,
+	0x2c, 0x85, 0xb9, 0xc5, 0x68, 0x32, 0x13, 0x17, 0xb3, 0x6f, 0x71, 0xba, 0x50, 0x0c, 0x17, 0x17,
+	0x52, 0x20, 0x2b, 0xe9, 0x61, 0x89, 0x0b, 0x3d, 0x94, 0xd0, 0x94, 0xd2, 0x22, 0xac, 0x06, 0x1e,
+	0xe2, 0x61, 0x5c, 0x1c, 0xf0, 0x60, 0x55, 0xc0, 0xa7, 0x0f, 0xa4, 0x42, 0x4a, 0x83, 0x90, 0x0a,
+	0x74, 0x73, 0xc1, 0xc1, 0x88, 0xd7, 0x5c, 0x90, 0x0a, 0xfc, 0xe6, 0x22, 0x87, 0x8a, 0x93, 0xe9,
+	0x89, 0x47, 0x72, 0x8c, 0x17, 0x1e, 0xc9, 0x31, 0x3e, 0x78, 0x24, 0xc7, 0x38, 0xe1, 0xb1, 0x1c,
+	0xc3, 0x85, 0xc7, 0x72, 0x0c, 0x37, 0x1e, 0xcb, 0x31, 0x44, 0x49, 0x23, 0x12, 0x6e, 0x85, 0x3e,
+	0x52, 0x22, 0xae, 0x2c, 0x48, 0x2d, 0x4e, 0x62, 0x03, 0x27, 0x64, 0x63, 0x40, 0x00, 0x00, 0x00,
+	0xff, 0xff, 0x60, 0xc1, 0x28, 0xd8, 0xde, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -479,7 +379,6 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type MsgClient interface {
 	GameCreate(ctx context.Context, in *MsgGameCreate, opts ...grpc.CallOption) (*MsgGameCreateResponse, error)
-	GaJoin(ctx context.Context, in *MsgGaJoin, opts ...grpc.CallOption) (*MsgGaJoinResponse, error)
 	GameJoin(ctx context.Context, in *MsgGameJoin, opts ...grpc.CallOption) (*MsgGameJoinResponse, error)
 	GamePlay(ctx context.Context, in *MsgGamePlay, opts ...grpc.CallOption) (*MsgGamePlayResponse, error)
 }
@@ -495,15 +394,6 @@ func NewMsgClient(cc grpc1.ClientConn) MsgClient {
 func (c *msgClient) GameCreate(ctx context.Context, in *MsgGameCreate, opts ...grpc.CallOption) (*MsgGameCreateResponse, error) {
 	out := new(MsgGameCreateResponse)
 	err := c.cc.Invoke(ctx, "/tictactoe.tictactoe.Msg/GameCreate", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *msgClient) GaJoin(ctx context.Context, in *MsgGaJoin, opts ...grpc.CallOption) (*MsgGaJoinResponse, error) {
-	out := new(MsgGaJoinResponse)
-	err := c.cc.Invoke(ctx, "/tictactoe.tictactoe.Msg/GaJoin", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -531,7 +421,6 @@ func (c *msgClient) GamePlay(ctx context.Context, in *MsgGamePlay, opts ...grpc.
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	GameCreate(context.Context, *MsgGameCreate) (*MsgGameCreateResponse, error)
-	GaJoin(context.Context, *MsgGaJoin) (*MsgGaJoinResponse, error)
 	GameJoin(context.Context, *MsgGameJoin) (*MsgGameJoinResponse, error)
 	GamePlay(context.Context, *MsgGamePlay) (*MsgGamePlayResponse, error)
 }
@@ -542,9 +431,6 @@ type UnimplementedMsgServer struct {
 
 func (*UnimplementedMsgServer) GameCreate(ctx context.Context, req *MsgGameCreate) (*MsgGameCreateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GameCreate not implemented")
-}
-func (*UnimplementedMsgServer) GaJoin(ctx context.Context, req *MsgGaJoin) (*MsgGaJoinResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GaJoin not implemented")
 }
 func (*UnimplementedMsgServer) GameJoin(ctx context.Context, req *MsgGameJoin) (*MsgGameJoinResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GameJoin not implemented")
@@ -571,24 +457,6 @@ func _Msg_GameCreate_Handler(srv interface{}, ctx context.Context, dec func(inte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MsgServer).GameCreate(ctx, req.(*MsgGameCreate))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Msg_GaJoin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgGaJoin)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MsgServer).GaJoin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/tictactoe.tictactoe.Msg/GaJoin",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).GaJoin(ctx, req.(*MsgGaJoin))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -636,10 +504,6 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GameCreate",
 			Handler:    _Msg_GameCreate_Handler,
-		},
-		{
-			MethodName: "GaJoin",
-			Handler:    _Msg_GaJoin_Handler,
 		},
 		{
 			MethodName: "GameJoin",
@@ -718,73 +582,6 @@ func (m *MsgGameCreateResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0xa
 	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgGaJoin) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgGaJoin) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgGaJoin) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if len(m.P2) > 0 {
-		i -= len(m.P2)
-		copy(dAtA[i:], m.P2)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.P2)))
-		i--
-		dAtA[i] = 0x1a
-	}
-	if len(m.GameID) > 0 {
-		i -= len(m.GameID)
-		copy(dAtA[i:], m.GameID)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.GameID)))
-		i--
-		dAtA[i] = 0x12
-	}
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgGaJoinResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgGaJoinResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgGaJoinResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
 	return len(dAtA) - i, nil
 }
 
@@ -974,36 +771,6 @@ func (m *MsgGameCreateResponse) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
-	return n
-}
-
-func (m *MsgGaJoin) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.GameID)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.P2)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	return n
-}
-
-func (m *MsgGaJoinResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
 	return n
 }
 
@@ -1256,202 +1023,6 @@ func (m *MsgGameCreateResponse) Unmarshal(dAtA []byte) error {
 			}
 			m.GameID = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgGaJoin) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgGaJoin: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgGaJoin: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 2:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field GameID", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.GameID = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 3:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field P2", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.P2 = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgGaJoinResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgGaJoinResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgGaJoinResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
 		default:
 			iNdEx = preIndex
 			skippy, err := skipTx(dAtA[iNdEx:])

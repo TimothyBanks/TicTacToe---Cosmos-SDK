@@ -3,10 +3,11 @@ package tictactoe
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"tictactoe/x/tictactoe/keeper"
 	"tictactoe/x/tictactoe/types"
+
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
 
 // NewHandler ...
@@ -19,9 +20,6 @@ func NewHandler(k keeper.Keeper) sdk.Handler {
 		switch msg := msg.(type) {
 		case *types.MsgGameCreate:
 			res, err := msgServer.GameCreate(sdk.WrapSDKContext(ctx), msg)
-			return sdk.WrapServiceResult(ctx, res, err)
-		case *types.MsgGaJoin:
-			res, err := msgServer.GaJoin(sdk.WrapSDKContext(ctx), msg)
 			return sdk.WrapServiceResult(ctx, res, err)
 		case *types.MsgGameJoin:
 			res, err := msgServer.GameJoin(sdk.WrapSDKContext(ctx), msg)
